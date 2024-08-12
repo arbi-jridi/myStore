@@ -15,7 +15,14 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      header: '*',
+      origin: ['https://mystore-tn.onrender.com']
+    }
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',

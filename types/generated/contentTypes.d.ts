@@ -462,7 +462,86 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::sub-category.sub-category'
     >;
-    type: Attribute.Enumeration<['normal', 'featured', 'trending']>;
+    type: Attribute.Enumeration<['normal', 'populaire', 'trending']>;
+    marque: Attribute.String;
+    stock: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<1>;
+    onStock: Attribute.Boolean & Attribute.DefaultTo<true>;
+    tag: Attribute.Enumeration<['hommes', 'femmes', 'enfants']>;
+    color: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'blanc',
+          'noir',
+          'rouge',
+          'jaune',
+          'bleu',
+          'rose',
+          'gris',
+          'vert',
+          'orange',
+          'violet',
+          'marron',
+          'turquoise',
+          'beige',
+          'bordeaux',
+          'argent',
+          'gold'
+        ]
+      >;
+    taille: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'XS',
+          'S',
+          'M',
+          'L',
+          'XL',
+          'XXL',
+          'XXXL',
+          '20',
+          '21',
+          '22',
+          '23',
+          '24',
+          '25',
+          '26',
+          '27',
+          '28',
+          '29',
+          '30',
+          '31',
+          '32',
+          '33',
+          '34',
+          '35',
+          '36',
+          '37',
+          '38',
+          '39',
+          '40',
+          '41',
+          '42',
+          '43',
+          '44',
+          '45',
+          '46',
+          '47',
+          '48',
+          '49',
+          '50'
+        ]
+      >;
+    Remise: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -902,7 +981,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -931,6 +1009,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    phone: Attribute.String;
+    addresse: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

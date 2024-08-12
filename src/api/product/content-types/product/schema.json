@@ -63,9 +63,99 @@
       "type": "enumeration",
       "enum": [
         "normal",
-        "featured",
+        "populaire",
         "trending"
       ]
+    },
+    "marque": {
+      "type": "string"
+    },
+    "stock": {
+      "default": 1,
+      "required": true,
+      "min": 0,
+      "type": "integer"
+    },
+    "onStock": {
+      "type": "boolean",
+      "default": true
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "hommes",
+        "femmes",
+        "enfants"
+      ]
+    },
+    "color": {
+      "type": "customField",
+      "options": [
+        "blanc",
+        "noir",
+        "rouge",
+        "jaune",
+        "bleu",
+        "rose",
+        "gris",
+        "vert",
+        "orange",
+        "violet",
+        "marron",
+        "turquoise",
+        "beige",
+        "bordeaux",
+        "argent",
+        "gold"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "taille": {
+      "type": "customField",
+      "options": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "Remise": {
+      "type": "integer"
     }
   }
 }
