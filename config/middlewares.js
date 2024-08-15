@@ -22,7 +22,7 @@ module.exports = [
     config: {
       enabled: true,
       header: '*',
-      origin: [env('origin')]
+      origin: [env('ORIGIN')]
     }
   },
   'strapi::poweredBy',
