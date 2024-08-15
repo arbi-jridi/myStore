@@ -1,3 +1,5 @@
+const env = (key) => process.env[key];
+
 module.exports = [
   'strapi::logger',
   'strapi::errors',
@@ -20,7 +22,7 @@ module.exports = [
     config: {
       enabled: true,
       header: '*',
-      origin: ['https://mystore-tn.onrender.com']
+      origin: [env('origin')]
     }
   },
   'strapi::poweredBy',
